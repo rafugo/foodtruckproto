@@ -13,15 +13,20 @@ driver (https://chromedriver.storage.googleapis.com/index.html?path=2.41/), and 
 ## TODO:
 ### Current Goals
 - [ ] Figure out how to parse addresses appropriately
+- [ ] Develop system that finds the next location a food truck will be and when
 
+### Taken by Rafa
+- [ ] Figure out a way to pair addresses and times
+
+### Taken by Kevin
+- [ ] Make a list of food trucks to test on
 
 ### Future Goals
 - [ ] Create a system that stores previous identified locations, which will help
 to quickly identify locations in tweets that are not in traditional format
-- [ ] Figure out a way to pair addresses and times
-- [ ] Identify other potential events like promotions and contests
-- [ ] Create a twitter scraper class with useful functions
 - [ ] Make a list of food trucks to test on
+- [ ] Create a twitter scraper class with useful functions
+- [ ] Identify other potential events like promotions and contests
 
 ### Completed Goals
 - [x] Parse times out of tweets
