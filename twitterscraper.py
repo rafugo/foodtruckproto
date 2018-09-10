@@ -1,15 +1,9 @@
 import time
-import pyap
 import usaddress
 import re
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
-# simple function for parsing addresses using pyap
-def parseAddress(text):
-    addresses = pyap.parse(text, country='US')
-    return addresses
 
 # a much better parsing addresses function using usaddress
 def parseAddressV2(text):
@@ -51,7 +45,8 @@ def prepareText(text):
 
 # ideally parses out times
 def parseTime(text):
-    timeMatchObj = re.match(r'')
+    # match for xx:xxAM/PM - x:xxAM/PM
+    timeMatchObj = re.match(r'(\d*):\d\d[ap]*m*')
 
 browser = webdriver.Chrome()
 base_url = u'https://twitter.com/'
