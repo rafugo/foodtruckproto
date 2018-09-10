@@ -77,12 +77,18 @@ time.sleep(2)
 body = browser.find_element_by_tag_name('body')
 
 tweets = browser.find_elements_by_class_name('tweet-text')
+dates = [element.get_attribute('title') \
+    for element in browser.find_elements_by_xpath( \
+        '//a[starts-with(@class,' + \
+        ' "tweet-timestamp js-permalink js-nav js-tooltip")]')]
 
 
 count = 1
-for tweet in tweets:
+for i in range(len(tweets)):
+    tweet = tweets[i]
+    tweetDate = dates[i]
     
-    if count > 20:
+    if count > 2:
         count+=1
         continue
 
@@ -101,6 +107,11 @@ for tweet in tweets:
 
     print("Time parsing list: ")
     print(parseTime(tweet.text))
+    print()
+
+    print("Tweet Date: ")
+    print(tweetDate)
+
 
     print('\n\n\n\n')
 

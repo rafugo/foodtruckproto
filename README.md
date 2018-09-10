@@ -13,7 +13,7 @@ driver (https://chromedriver.storage.googleapis.com/index.html?path=2.41/), and 
 ## TODO:
 ### Current Goals
 - [ ] Figure out how to parse addresses appropriately
-- [ ] Figure out how to parse dates appropriately
+
 
 ### Future Goals
 - [ ] Create a system that stores previous identified locations, which will help
@@ -25,6 +25,7 @@ to quickly identify locations in tweets that are not in traditional format
 
 ### Completed Goals
 - [x] Parse times out of tweets
+- [x] Figure out how to parse dates appropriately
 
 ## Food trucks considered only in LA
 KogiBBQ, grlldcheesetruk, NoMadTruckLA, JogasakiBurrito, LobstaTruck
