@@ -23,7 +23,7 @@ def parseAddressV2(text):
 
     labelTypes = ['AddressNumber', 'StreetNamePreDirectional',
                     'StreetName', 'StreetNamePostType',
-                    'ZipCode', 'PlaceName']
+                    'ZipCode', 'StateName', 'PlaceName']
 
     for pair in parsedList:
         if pair[1] in labelTypes:
@@ -39,14 +39,28 @@ def parseAddressV2(text):
 
         lastSeenLabel = pair[1]
 
+    print(parsedList)
     return addressList
 
+# replaces all potential StreetNamePostTypes with 
+# recognizable ones for usaddress
+def prepareText(text):
+    text = re.sub('\WAve\W', ' Ave., ', text, re.I)
 
+    return text
 
+# ideally parses out times
+def parseTime(text):
+    timeMatchObj = re.match(r'')
 
 browser = webdriver.Chrome()
 base_url = u'https://twitter.com/'
-handle = u'NoMadTruckLA'
+# handle = u'KogiBBQ'
+handle = u'grlldcheesetruk'
+# handle = u'NoMadTruckLA'
+# handle = u'JogasakiBurrito'
+# handle = u'LobstaTruck'
+
 url = base_url + handle
 
 browser.get(url)
@@ -60,10 +74,14 @@ tweets = browser.find_elements_by_class_name('tweet-text')
 count = 1
 for tweet in tweets:
     
-    if count > 10:
+    if count > 20:
         count+=1
         continue
-    
+
+    # preparedText = prepareText(tweet.text)
+    # print(prepareText(tweet.text))
+
+    # tweetAddresses = parseAddressV2(preparedText)
     tweetAddresses = parseAddressV2(tweet.text)
     print("Tweet " + str(count) + " Text:")
     print(tweet.text)

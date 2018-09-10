@@ -16,9 +16,14 @@ driver, and then put the chrome driver in your PATH that python looks in.
 - [ ] Figure out how to parse dates/times appropriately
 
 ### Future Goals
+- [ ] Create a system that stores previous identified locations, which will help
+to quickly identify locations in tweets that are not in traditional format
+- [ ] Identify other potential events like promotions and contests
 - [ ] Create a twitter scraper class with useful functions
 - [ ] Make a list of food trucks to test on
 
+### Completed Goals
+- [ ] none for now lol
 
 ## Food trucks considered only in LA
 Kogi, NoMad, ...
