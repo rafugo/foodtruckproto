@@ -8,12 +8,12 @@ The address parser currently is `pip install usaddress` which I got from here:
 https://github.com/datamade/usaddress.
 
 Lastly, you will need to download the chrome browser as well as the chrome 
-driver, and then put the chrome driver in your PATH that python looks in.
+driver (https://chromedriver.storage.googleapis.com/index.html?path=2.41/), and then put the chrome driver in your PATH that python looks in.
 
 ## TODO:
 ### Current Goals
 - [ ] Figure out how to parse addresses appropriately
-- [ ] Figure out how to parse dates/times appropriately
+- [x] Figure out how to parse dates/times appropriately
 
 ### Future Goals
 - [ ] Create a system that stores previous identified locations, which will help
@@ -26,4 +26,4 @@ to quickly identify locations in tweets that are not in traditional format
 - [ ] none for now lol
 
 ## Food trucks considered only in LA
-Kogi, NoMad, ...
+KogiBBQ, grlldcheesetruk, NoMadTruckLA, JogasakiBurrito, LobstaTruck

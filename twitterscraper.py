@@ -17,7 +17,8 @@ def parseAddressV2(text):
 
     labelTypes = ['AddressNumber', 'StreetNamePreDirectional',
                     'StreetName', 'StreetNamePostType',
-                    'ZipCode', 'StateName', 'PlaceName']
+                    'ZipCode', 'StateName', 'PlaceName', 
+                    'IntersectionSeparator']
 
     for pair in parsedList:
         if pair[1] in labelTypes:
@@ -33,6 +34,9 @@ def parseAddressV2(text):
 
         lastSeenLabel = pair[1]
 
+    if tempAddress != '':
+        addressList.append(tempAddress)
+
     print(parsedList)
     return addressList
 
@@ -46,12 +50,21 @@ def prepareText(text):
 # ideally parses out times
 def parseTime(text):
     # match for xx:xxAM/PM - x:xxAM/PM
-    timeMatchObj = re.match(r'(\d*):\d\d[ap]*m*')
+    timeMatchObj = \
+        re.findall(r'(\d{1,2}\s{0,}(:*)\s{0,}\d{0,2}\s{0,}([ap]*)(m*)\s{0,}-\s{0,}\d{1,2}\s{0,}(:*)\s{0,}\d{0,2}\s{0,}([ap]*)(m*))',
+                    text, re.I)
+
+    if (timeMatchObj == []):
+        return []
+    else:
+        timeMatches = [i[0] for i in timeMatchObj]
+        return timeMatches
+
 
 browser = webdriver.Chrome()
 base_url = u'https://twitter.com/'
-# handle = u'KogiBBQ'
-handle = u'grlldcheesetruk'
+handle = u'KogiBBQ'
+# handle = u'grlldcheesetruk'
 # handle = u'NoMadTruckLA'
 # handle = u'JogasakiBurrito'
 # handle = u'LobstaTruck'
@@ -84,6 +97,11 @@ for tweet in tweets:
 
     print("Address parsing list: ")
     print(tweetAddresses)
+    print()
+
+    print("Time parsing list: ")
+    print(parseTime(tweet.text))
+
     print('\n\n\n\n')
 
     count+=1
