@@ -63,11 +63,11 @@ def parseTime(text):
 
 browser = webdriver.Chrome()
 base_url = u'https://twitter.com/'
-handle = u'KogiBBQ'
+# handle = u'KogiBBQ'
 # handle = u'grlldcheesetruk'
 # handle = u'NoMadTruckLA'
 # handle = u'JogasakiBurrito'
-# handle = u'LobstaTruck'
+handle = u'LobstaTruck'
 
 url = base_url + handle
 
@@ -84,11 +84,11 @@ dates = [element.get_attribute('title') \
 
 
 count = 1
-for i in range(len(tweets)):
+for i in range(20): #len(tweets)
     tweet = tweets[i]
     tweetDate = dates[i]
     
-    if count > 2:
+    if count > 20:
         count+=1
         continue
 
