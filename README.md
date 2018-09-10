@@ -29,7 +29,7 @@ to quickly identify locations in tweets that are not in traditional format
 - [ ] Identify other potential events like promotions and contests
 
 ### Completed Goals
-- [x] Parse times out of tweets
+- [x] Parse times out of tweets (DOES NOT CATCH SINGLE TIMES)
 - [x] Figure out how to parse dates appropriately
 
 ## Food trucks considered only in LA

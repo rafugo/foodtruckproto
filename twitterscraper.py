@@ -40,10 +40,14 @@ def parseAddressV2(text):
     print(parsedList)
     return addressList
 
-# replaces all potential StreetNamePostTypes with 
-# recognizable ones for usaddress
-def prepareText(text):
-    text = re.sub('\WAve\W', ' Ave., ', text, re.I)
+# takes out all the times
+def removeTimes(text):
+    times = parseTime(text)
+
+    for time in times:
+        # this is the only substitution i could find that would not get picked
+        # up as a street name lmao
+        text = re.sub(time, 'this must be ignored trust me', text)
 
     return text
 
@@ -60,14 +64,33 @@ def parseTime(text):
         timeMatches = [i[0] for i in timeMatchObj]
         return timeMatches
 
+# function that attempts to pair addresses with their corresponding times
+# returns None if there's not an equal amount of addresses and times
+def pairAddressTimes(text, addresses, times):
+    # if there's the same amount of addresses and times, then we are most likely
+    # correct in just pairing them up
+    if (len(addresses) == len(times)):
+        return list(zip(addresses, times))
+
+    # given that our time parser is more trustworthy, if there's one time and 
+    # multiple places, we can assume that time is for all the places
+    elif len(times) == 1: 
+
+        # NOTE: this is risky and may be taken out if too risky
+        return [(address, times[0]) for address in addresses]
+
+    # otherwise this cannot be trusted
+    else:
+        return None
+
 
 browser = webdriver.Chrome()
 base_url = u'https://twitter.com/'
-# handle = u'KogiBBQ'
+handle = u'KogiBBQ'
 # handle = u'grlldcheesetruk'
 # handle = u'NoMadTruckLA'
 # handle = u'JogasakiBurrito'
-handle = u'LobstaTruck'
+# handle = u'LobstaTruck'
 
 url = base_url + handle
 
@@ -92,13 +115,14 @@ for i in range(20): #len(tweets)
         count+=1
         continue
 
-    # preparedText = prepareText(tweet.text)
-    # print(prepareText(tweet.text))
+    # parse the tweet
+    tweetText = tweet.text
+    times = parseTime(tweetText)
+    tweetText = removeTimes(tweetText)
+    tweetAddresses = parseAddressV2(tweetText)
 
-    # tweetAddresses = parseAddressV2(preparedText)
-    tweetAddresses = parseAddressV2(tweet.text)
     print("Tweet " + str(count) + " Text:")
-    print(tweet.text)
+    print(tweetText)
     print()
 
     print("Address parsing list: ")
@@ -106,12 +130,15 @@ for i in range(20): #len(tweets)
     print()
 
     print("Time parsing list: ")
-    print(parseTime(tweet.text))
+    print(times)
     print()
 
     print("Tweet Date: ")
     print(tweetDate)
+    print()
 
+    print("Food Truck Locations: ")
+    print(pairAddressTimes(tweet.text, tweetAddresses, times))
 
     print('\n\n\n\n')
 
