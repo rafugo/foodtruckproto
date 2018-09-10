@@ -13,17 +13,18 @@ driver (https://chromedriver.storage.googleapis.com/index.html?path=2.41/), and 
 ## TODO:
 ### Current Goals
 - [ ] Figure out how to parse addresses appropriately
-- [x] Figure out how to parse dates/times appropriately
+- [ ] Figure out how to parse dates appropriately
 
 ### Future Goals
 - [ ] Create a system that stores previous identified locations, which will help
 to quickly identify locations in tweets that are not in traditional format
+- [ ] Figure out a way to pair addresses and times
 - [ ] Identify other potential events like promotions and contests
 - [ ] Create a twitter scraper class with useful functions
 - [ ] Make a list of food trucks to test on
 
 ### Completed Goals
-- [ ] none for now lol
+- [x] Parse times out of tweets
 
 ## Food trucks considered only in LA
 KogiBBQ, grlldcheesetruk, NoMadTruckLA, JogasakiBurrito, LobstaTruck
