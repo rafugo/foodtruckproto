@@ -8,8 +8,8 @@
 }
 
 .App-header {
-  background-color: #FFAA00;
-  height: 150px;
+  background-color: #000000;
+  height: 70px;
   padding: 20px;
   color: white;
 }
@@ -24,14 +24,18 @@
 
 .App-card {
   height: 300px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
   width: 200px;
   border: solid;
   border-color: black;
   border-radius: 50px;
   cursor: pointer;
   padding: 20px;
+  background-color: #FFF
+}
+
+.App-card:hover {
+  background-color: #EEE;
 }
 
 .Image-dims {
