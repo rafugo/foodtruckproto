@@ -10,6 +10,18 @@ https://github.com/datamade/usaddress.
 Lastly, you will need to download the chrome browser as well as the chrome 
 driver (https://chromedriver.storage.googleapis.com/index.html?path=2.41/), and then put the chrome driver in your PATH that python looks in.
 
+To get the web app stuff going: 
+
+Install `node` for your system. 
+
+Install `yarn` on your system.
+
+When in `food-truck-web`, type `yarn`. This will install all the needed packages.
+
+Type in `yarn start` and you're good to go!
+
+
+
 ## TODO:
 ### Current Goals
 - [ ] Figure out how to parse addresses appropriately
