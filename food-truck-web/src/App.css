@@ -22,7 +22,7 @@
   font-size: large;
 }
 
-.App-box {
+.App-card {
   height: 300px;
   margin-left: 10px;
   margin-right: 10px;
@@ -30,6 +30,14 @@
   border: solid;
   border-color: black;
   border-radius: 50px;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.Image-dims {
+  height: 170px;
+  width: 170px;
+  border-radius: 40px;
 }
 
 @keyframes App-logo-spin {
