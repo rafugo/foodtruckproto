@@ -1,0 +1,25 @@
+{
+  "name": "foodtruckproto",
+  "version": "1.0.0",
+  "description": "Finds food trucks based on twitter feeds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafugo/foodtruckproto.git"
+  },
+  "author": "Rafael Fueyo-Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafugo/foodtruckproto/issues"
+  },
+  "homepage": "https://github.com/rafugo/foodtruckproto#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
