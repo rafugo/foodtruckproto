@@ -16,15 +16,6 @@ bold 700 Italic
 
   */
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  color: $black;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
 /*
 Mixins
   */
@@ -39,4 +30,30 @@ Mixins
   -webkit-transition:$e;
     -moz-transform:$e;
           transform:$e;
+}
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: $black;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  @include transition(.4s ease-in-out);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    color: $red;
+    @include transition(.4s ease-in-out);
+  }
+
+}
+
+.container-fluid {
+  line-height: 24px;
 }
